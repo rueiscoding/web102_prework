@@ -145,12 +145,26 @@ const allBtn = document.getElementById("all-btn").addEventListener("click", show
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
+const number_unfunded_games = GAMES_JSON.reduce( (acc, game) => {
+    return game.pledged < game.goal ? acc + 1 : acc}, 0);
 
+const number_total_games = GAMES_JSON.reduce( (acc, game) => {
+    return acc+1}, 0);
+
+const total_funded_for_funded_games = GAMES_JSON.reduce( (acc, game) => {
+    return acc + game.pledged}, 0);
 
 // create a string that explains the number of unfunded games using the ternary operator
 
+const displaystr = `A total of $${total_funded_for_funded_games.toLocaleString('en-US')} has been raised for 
+                    ${number_total_games} games.
+                    Currently, ${number_unfunded_games} games remain unfunded. We need your help to fund these amazing games!`;
+
 
 // create a new DOM element containing the template string and append it to the description container
+const more_desc = document.createElement('p');
+more_desc.innerHTML = `<p>${displaystr}</p>`;
+descriptionContainer.appendChild(more_desc);
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -166,6 +180,16 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 
 // use destructuring and the spread operator to grab the first and second games
 
-// create a new element to hold the name of the top pledge game, then append it to the correct element
+const [first_element, second_element, ...rest_of_array] = sortedGames; 
+
+
+// // create a new element to hold the name of the top pledge game, then append it to the correct element
+const first_game = document.createElement('p');
+first_game.innerHTML = `<div>${first_element.name}</div>`;
+firstGameContainer.appendChild(first_game);
 
 // do the same for the runner up item
+
+const second_game = document.createElement('p');
+second_game.innerHTML = `<div>${second_element.name}</div>`;
+secondGameContainer.appendChild(second_game);
