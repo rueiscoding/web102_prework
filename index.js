@@ -32,9 +32,10 @@ function addGamesToPage(games) {
     games.forEach((element, index, array) => {
         const gameCard = document.createElement('div');
         gameCard.classList.add("game-card");
-        gameCard.innerHTML = `<img class='game-img' src=${element.img} alt="game image" />
-                            <div>${element.name}</div>
-                            <div>${element.description}</div>`;
+
+        gameCard.innerHTML = `<img class='game-img' src="${element.img}" alt="game image" />
+                                <div style="margin-top: 5px; text-align: center; font-weight: bold; font-size: 20px;">${element.name}</div>
+                                <div style="margin-top: 5px; text-align: left;">${element.description}</div>`;
         gamesContainer.appendChild(gameCard);
 
     });
@@ -131,9 +132,23 @@ function showAllGames() {
 // select each button in the "Our Games" section
 // add event listeners with the correct functions to each button
 
-const unfundedBtn = document.getElementById("unfunded-btn").addEventListener("click", filterUnfundedOnly);;
-const fundedBtn = document.getElementById("funded-btn").addEventListener("click", filterFundedOnly);
-const allBtn = document.getElementById("all-btn").addEventListener("click", showAllGames);
+function setActive(clickedButton) {
+    const buttons = document.querySelectorAll('#button-container button');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    clickedButton.classList.add('active');
+}
+
+const unfundedBtn = document.getElementById("unfunded-btn");
+unfundedBtn.addEventListener("click", filterUnfundedOnly);
+unfundedBtn.addEventListener("click", () => setActive(unfundedBtn));
+
+const fundedBtn = document.getElementById("funded-btn");
+fundedBtn.addEventListener("click", filterFundedOnly);
+fundedBtn.addEventListener("click", () => setActive(fundedBtn));
+
+const allBtn = document.getElementById("all-btn");
+allBtn.addEventListener("click", showAllGames);
+allBtn.addEventListener("click", () => setActive(allBtn));
 
 
 /*************************************************************************************

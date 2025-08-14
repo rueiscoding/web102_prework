@@ -1,10 +1,8 @@
-# WEB102 Prework - *Name of App Here*
+# WEB102 Prework - *WaveStarter*
 
-Submitted by: **Your Name Here**
+Submitted by: **Rue Tripathy [rueiscoding]**
 
-**Name of your app** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
-
-Time spent: **X** hours spent in total
+**WaveStarter** is a website for the company Sea Monster Crowdfunding that displays information about the games they have funded.
 
 ## Required Features
 
@@ -17,24 +15,19 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-* [ ] List anything else that you can get done to improve the app functionality!
+* [ ] Centered some headings
+* [ ] The selected button's appearance changes to give user feedback on selection.
+* [ ] Cleaned up the game cards.
 
 ## Video Walkthrough
 
-Here's a walkthrough of implemented features:
-
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
-
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+Link to [Loom video](https://www.loom.com/share/14640d9bdd1c490e9fb3dfe8eeb721c1?sid=97854ae6-dce2-41de-8525-629253f7384f) for a walkthrough of implemented features.
 
 ## Notes
 
-Describe any challenges encountered while building the app.
+Styling outside of the css file got messy! 
+
+I created a setActive() function that deselects all the buttons except the one passed as a parameter. I ran into some errors when I was directly invoking setActive on click instead of passing an anonymous function to wrap setActive.
 
 ## License
 
